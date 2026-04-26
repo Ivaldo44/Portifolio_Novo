@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Inter", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --font-label: "Inter", sans-serif;
+
+  --color-void: #0D0D0D;
+  --color-void-bright: #1A1A1A;
+  --color-accent: #38B000;
+  --color-accent-muted: rgba(56, 176, 0, 0.2);
+  --color-accent-deep: #004B23;
+  --color-accent-bright: #CCFF33;
+  --color-white: #FFFFFF;
+  --color-muted: rgba(255, 255, 255, 0.4);
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+
+  --radius-xl: 1.5rem;
+  --radius-lg: 1rem;
+}
+
+@layer base {
+  * {
+    cursor: none !important;
+  }
+  
+  body {
+    @apply bg-void text-white font-sans selection:bg-accent selection:text-black;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-headline transition-all duration-300 uppercase tracking-tighter font-extrabold;
+  }
+}
+
+.font-playfair { font-family: var(--font-playfair); }
+
+.glass {
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-glass-border);
+  backdrop-filter: blur(10px);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.grain-overlay {
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC-QsgR3DA9DuwZzO4GQ-2utqivGIVFuPdpSDYh-xd4-FYilJCaKGz5twnJucNERx_oTNi0zZCEW3QAOMEtzrdhyaJkPqs9-IoDK2G5ICU0R8vY1ROvKunyqqcZ99HdEgRTvpsjWFRwzNRSnMmkwNPsZr4HP29p6QCYA-Rip6d8VB1kp2k_7r_Y-sTo8bVJgtUtfngdDnXmnrQ5NjFSSch4hUgxCI6OdI65aJ_oz71-yj4S-daTZ_19W5rpYUeMTHq-TJ8KQClJYF0");
+  opacity: 0.03;
+  pointer-events: none;
+}
