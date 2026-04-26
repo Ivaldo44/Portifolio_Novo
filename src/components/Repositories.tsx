@@ -15,7 +15,9 @@ interface Repo {
 export default function Repositories() {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [selectedRepo, setSelectedRepo] = useState<Repo | null>(null);
+  const [constraints, setConstraints] = useState({ left: 0, right: 0 });
   const scrollRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch("https://api.github.com/users/Ivaldo44/repos?sort=updated&per_page=10")
@@ -27,6 +29,26 @@ export default function Repositories() {
       })
       .catch(err => console.error("Erro ao buscar repositórios:", err));
   }, []);
+
+  useEffect(() => {
+    const calcConstraints = () => {
+      if (scrollRef.current && containerRef.current) {
+        const scrollWidth = scrollRef.current.scrollWidth;
+        const containerWidth = containerRef.current.offsetWidth;
+        // Add a small buffer to ensure the last item is fully visible
+        setConstraints({ left: Math.min(0, -(scrollWidth - containerWidth + 40)), right: 0 });
+      }
+    };
+    
+    // Initial calculation after a short delay to ensure items are measured
+    const timer = setTimeout(calcConstraints, 500);
+    window.addEventListener('resize', calcConstraints);
+    
+    return () => {
+      window.removeEventListener('resize', calcConstraints);
+      clearTimeout(timer);
+    };
+  }, [repos]);
 
   return (
     <section className="py-24 overflow-hidden border-b border-glass-border" id="projects">
@@ -49,12 +71,14 @@ export default function Repositories() {
       </div>
 
       {/* Repository Carousel */}
-      <div className="relative group">
+      <div ref={containerRef} className="relative group overflow-hidden">
         <motion.div 
           ref={scrollRef}
-          className="flex gap-6 px-6 md:px-10 overflow-x-auto no-scrollbar py-8"
+          className="flex gap-6 px-6 md:px-10 py-8 cursor-grab active:cursor-grabbing w-max"
           drag="x"
-          dragConstraints={{ right: 0, left: -2000 }}
+          dragConstraints={constraints}
+          dragElastic={0.1}
+          style={{ x: 0 }}
         >
           {repos.map((repo) => (
             <motion.div

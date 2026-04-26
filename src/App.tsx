@@ -3,20 +3,25 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Repositories from "./components/Repositories";
-import Timeline from "./components/Timeline";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Chat from "./components/Chat";
 import CustomCursor from "./components/CustomCursor";
+import Preloader from "./components/Preloader";
+
+// Lazy load non-critical components
+const About = lazy(() => import("./components/About"));
+const Repositories = lazy(() => import("./components/Repositories"));
+const Timeline = lazy(() => import("./components/Timeline"));
+const Skills = lazy(() => import("./components/Skills"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
+const Chat = lazy(() => import("./components/Chat"));
 
 export default function App() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-[#050505]">
+      <Preloader />
       {/* Global Grain Overlay */}
       <div className="grain-overlay fixed inset-0 z-50 overflow-hidden pointer-events-none" />
       
@@ -25,15 +30,19 @@ export default function App() {
       
       <main className="relative">
         <Hero />
-        <About />
-        <Repositories />
-        <Timeline />
-        <Skills />
-        <Contact />
+        <Suspense fallback={<div className="h-[20vh]" />}>
+          <About />
+          <Repositories />
+          <Timeline />
+          <Skills />
+          <Contact />
+        </Suspense>
       </main>
       
-      <Footer />
-      <Chat />
+      <Suspense fallback={null}>
+        <Footer />
+        <Chat />
+      </Suspense>
     </div>
   );
 }

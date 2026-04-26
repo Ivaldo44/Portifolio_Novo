@@ -3,20 +3,15 @@ import { motion } from "motion/react";
 export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-10 pt-32 pb-20 max-w-7xl mx-auto relative overflow-hidden">
-      {/* Ambient background glows */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-accent blur-[120px] rounded-full" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent blur-[120px] rounded-full opacity-40" />
-      </div>
-
       <div className="w-full md:w-1/2 z-20 space-y-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[0.9] mb-6 text-white uppercase">
-            IVALDO <span className="text-accent">PONTES</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1] mb-6 text-white uppercase flex flex-col">
+            <span>IVALDO PONTES</span>
+            <span className="text-accent">FIGUEIREDO</span>
           </h1>
           <p className="text-muted text-sm max-w-sm leading-relaxed uppercase tracking-wider font-semibold">
             Desenvolvendo interfaces limpas e eficientes, unindo design moderno e performance.
