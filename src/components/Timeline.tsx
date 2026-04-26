@@ -22,23 +22,24 @@ const events: TimelineEvent[] = [
     color: "bg-accent"
   },
   {
-    period: "2024",
+    period: "2021 — 2025",
     title: "Desenvolvedor Front-end & WordPress Specialist",
     location: "FREELANCE",
     bullets: [
-      "Desenvolvimento de projetos como Boca no Mundo Imóveis e MID – Minha Imobiliária Digital, focados na criação de plataformas imobiliárias com cadastro dinâmico de imóveis, filtros personalizados e organização de dados.",
-      "Implementação de páginas personalizadas (single post), integração de mapas e estruturação de conteúdos com Pods e ACF.",
-      "Criação de interfaces modernas, responsivas e otimizadas utilizando WordPress, Elementor, HTML, CSS e JavaScript."
+      "Desenvolvimento de projetos como Boca no Mundo Imóveis e MID – Minha Imobiliária Digital.",
+      "Criação de plataformas imobiliárias com cadastro dinâmico, filtros personalizados e integração de mapas.",
+      "Customização técnica via HTML/CSS/JS e estruturação de dados com Pods e ACF."
     ],
     color: "bg-accent"
   },
   {
-    period: "2024",
-    title: "Desenvolvedor Front-end & WordPress Specialist",
-    location: "FREELANCE",
+    period: "2019 — 2021",
+    title: "Web Designer & Developer",
+    location: "DIGITAL SOLUTION",
     bullets: [
-      "Desenvolvimento de projetos como MID – Minha Imobiliária Digital e Boca no Mundo Imóveis, focados em criação de sites imobiliários com cadastro dinâmico de imóveis, filtros personalizados e integração com mapas.",
-      "Criação de landing pages e sites institucionais utilizando WordPress e Elementor, com customizações em HTML, CSS e JavaScript. Foco em performance, responsividade e organização de dados."
+      "Desenvolvimento de interfaces responsivas e manutenção de sistemas web.",
+      "Foco em usabilidade e performance em projetos institucionais.",
+      "Implementação de soluções digitais focadas na experiência do usuário."
     ],
     color: "bg-muted"
   }

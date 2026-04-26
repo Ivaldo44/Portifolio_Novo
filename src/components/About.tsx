@@ -9,10 +9,16 @@ export default function About() {
   const resumeData = {
     experience: [
       {
+        company: "NIT LabCedro",
+        role: "Jovem Aprendiz em Desenvolvimento / Automação",
+        period: "2026 - Presente",
+        description: "Atuação no desenvolvimento de soluções internas, incluindo automação de processos com Python para organização de dados e documentos."
+      },
+      {
         company: "Freelance",
         role: "Desenvolvedor Front-end & WordPress Specialist",
-        period: "2021 - Presente",
-        description: "Criação de sites institucionais e e-commerces de alto impacto utilizando WordPress e Elementor. Focado em customização técnica via HTML/CSS/JS e otimização de fluxo com IA."
+        period: "2021 - 2025",
+        description: "Desenvolvimento de projetos como Boca no Mundo Imóveis e MID – Minha Imobiliária Digital. Focado em customização técnica via HTML/CSS/JS e otimização de fluxo com IA."
       },
       {
         company: "Digital Solution",
@@ -21,7 +27,7 @@ export default function About() {
         description: "Desenvolvimento de interfaces responsivas e manutenção de sistemas web, priorizando usabilidade e performance."
       }
     ],
-    skills: ["HTML5", "CSS3 / Sass", "JavaScript", "WordPress", "Elementor", "AI Productivity"]
+    skills: ["HTML5", "CSS3 / Sass", "JavaScript", "WordPress", "Elementor", "AI Productivity", "Python"]
   };
 
   return (
