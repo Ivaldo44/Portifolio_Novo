@@ -7,7 +7,6 @@ import { Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import CustomCursor from "./components/CustomCursor";
-import Preloader from "./components/Preloader";
 
 // Lazy load non-critical components
 const About = lazy(() => import("./components/About"));
@@ -21,7 +20,6 @@ const Chat = lazy(() => import("./components/Chat"));
 export default function App() {
   return (
     <div className="relative min-h-screen bg-[#050505]">
-      <Preloader />
       {/* Global Grain Overlay */}
       <div className="grain-overlay fixed inset-0 z-50 overflow-hidden pointer-events-none" />
       

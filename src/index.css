@@ -23,10 +23,6 @@
 }
 
 @layer base {
-  .preloader-active {
-    overflow: hidden !important;
-  }
-
   * {
     cursor: none !important;
   }
