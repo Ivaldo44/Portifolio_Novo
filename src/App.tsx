@@ -28,7 +28,7 @@ export default function App() {
       <CustomCursor />
       <Navbar />
       
-      <main className="relative z-10 transition-opacity duration-1000">
+      <main className="relative z-10">
         <Hero />
         <Suspense fallback={<div className="h-[20vh]" />}>
           <About />
