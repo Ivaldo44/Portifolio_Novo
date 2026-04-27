@@ -5,7 +5,9 @@ export default function Hero() {
     <section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-10 pt-32 pb-20 max-w-7xl mx-auto relative overflow-hidden">
       <div className="w-full md:w-1/2 z-20 space-y-6">
         <motion.div
-          initial={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1] mb-6 text-white uppercase flex flex-col">
             <span>IVALDO PONTES</span>

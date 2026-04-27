@@ -82,21 +82,30 @@ export default function About() {
       {/* Resume Modal */}
       <AnimatePresence>
         {isResumeOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsResumeOpen(false)}
-              className="absolute inset-0 bg-void/95"
+              className="absolute inset-0 bg-void/98 backdrop-blur-sm"
             />
+            
             <motion.div 
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="relative w-full max-w-4xl max-h-[90vh] bg-black rounded-[2.5rem] overflow-hidden border border-accent/20 flex flex-col md:flex-row shadow-2xl will-change-transform"
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+              className="relative w-full max-w-4xl max-h-[90vh] bg-black rounded-[2.5rem] border border-white/10 flex flex-col md:flex-row shadow-2xl z-[210] overflow-hidden"
             >
+              <button 
+                onClick={() => setIsResumeOpen(false)}
+                className="absolute top-6 right-6 z-[250] p-2 text-white/40 hover:text-accent transition-all bg-white/5 hover:bg-white/10 rounded-full border border-white/10 cursor-pointer pointer-events-auto group backdrop-blur-md"
+                aria-label="Fechar"
+              >
+                <X size={18} className="group-hover:rotate-90 transition-transform duration-300" />
+              </button>
+
               {/* Left Side: Photo/Info */}
               <div className="w-full md:w-1/3 bg-accent/5 p-10 border-b md:border-b-0 md:border-r border-white/5">
                 <div className="w-24 h-24 rounded-full bg-accent/20 flex items-center justify-center mb-8 border border-accent/30 mx-auto md:mx-0">
@@ -126,13 +135,6 @@ export default function About() {
 
               {/* Right Side: Content */}
               <div className="w-full md:w-2/3 p-10 md:p-16 overflow-y-auto custom-scrollbar bg-void/40">
-                <button 
-                  onClick={() => setIsResumeOpen(false)}
-                  className="absolute top-8 right-8 text-muted hover:text-accent transition-colors"
-                >
-                  <X size={20} />
-                </button>
-
                 <h3 className="text-[10px] text-accent tracking-[0.5em] uppercase font-black mb-10 block">Trajetória</h3>
                 
                 <div className="space-y-12">
@@ -163,27 +165,28 @@ export default function About() {
       {/* Manifesto Modal */}
       <AnimatePresence>
         {isManifestoOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+          <div className="fixed inset-0 z-[200] flex items-center justify-center p-6">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsManifestoOpen(false)}
-              className="absolute inset-0 bg-void/95"
+              className="absolute inset-0 bg-void/98 backdrop-blur-sm"
             />
+
             <motion.div 
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              className="relative w-full max-w-2xl bg-black p-10 md:p-16 rounded-[3rem] border border-accent/20 shadow-2xl will-change-transform"
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.98 }}
+              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+              className="relative w-full max-w-2xl bg-black p-10 md:p-16 rounded-[3rem] border border-white/10 shadow-2xl z-[210] overflow-hidden"
             >
               <button 
                 onClick={() => setIsManifestoOpen(false)}
-                className="absolute top-8 right-8 text-muted hover:text-accent transition-colors flex items-center gap-2"
+                className="absolute top-6 right-6 z-[250] p-2 text-white/40 hover:text-accent transition-all bg-white/5 hover:bg-white/10 rounded-full border border-white/10 cursor-pointer pointer-events-auto group backdrop-blur-md"
+                aria-label="Fechar"
               >
-                <span className="text-[10px] font-black uppercase tracking-widest hidden md:block">Fechar</span>
-                <X size={20} />
+                <X size={18} className="group-hover:rotate-90 transition-transform duration-300" />
               </button>
 
               <span className="text-[10px] text-accent tracking-[0.5em] uppercase font-black mb-8 block">Meu Manifesto</span>

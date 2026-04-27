@@ -3,7 +3,18 @@ import { motion, AnimatePresence } from "motion/react";
 import { MessageSquare, Send, X, User, Bot, Loader2 } from "lucide-react";
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+let aiClient: GoogleGenAI | null = null;
+
+const getAI = () => {
+  if (!aiClient) {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey || apiKey === "undefined" || apiKey === "MY_GEMINI_API_KEY") {
+      return null;
+    }
+    aiClient = new GoogleGenAI({ apiKey });
+  }
+  return aiClient;
+};
 
 interface Message {
   role: "user" | "bot";
@@ -34,6 +45,18 @@ export default function Chat() {
     setInput("");
     setMessages((prev) => [...prev, { role: "user", text: userMessage }]);
     setIsLoading(true);
+
+    const ai = getAI();
+    if (!ai) {
+      setTimeout(() => {
+        setMessages((prev) => [...prev, { 
+          role: "bot", 
+          text: "O assistente de IA está temporariamente indisponível. Para ativá-lo, é necessário configurar a GEMINI_API_KEY no ambiente." 
+        }]);
+        setIsLoading(false);
+      }, 1000);
+      return;
+    }
 
     try {
       const response = await ai.models.generateContent({ 

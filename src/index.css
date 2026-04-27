@@ -24,7 +24,7 @@
 
 @layer base {
   * {
-    /* cursor: none !important; */
+    cursor: none !important;
   }
   
   body {

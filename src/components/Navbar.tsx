@@ -16,7 +16,9 @@ export default function Navbar() {
     <header className="fixed top-0 z-50 w-full bg-transparent">
       <nav className="flex justify-between items-center w-full px-6 md:px-10 py-8 max-w-7xl mx-auto">
         <motion.div 
-          initial={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
           className="text-xl md:text-2xl font-headline font-extrabold tracking-tighter text-white uppercase"
         >
           Ivaldo<span className="text-accent"> Figueiredo</span>
